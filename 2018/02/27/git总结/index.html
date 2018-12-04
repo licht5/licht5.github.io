@@ -5,18 +5,20 @@
   
 
   
-  <title>Archives: 2018 | 午夜星灯</title>
+  <title>git总结 | 午夜星灯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如切如磋,如琢如磨。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="午夜星灯">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="①初始化一个Git仓库，使用git init命令。添加文件到Git仓库，分两步：    第一步，使用命令git add &amp;lt;file&amp;gt;，注意，可反复多次使用，添加多个文件；    第二步，使用命令git commit，完成。">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git总结">
+<meta property="og:url" content="http://yoursite.com/2018/02/27/git总结/index.html">
 <meta property="og:site_name" content="午夜星灯">
-<meta property="og:description" content="如切如磋,如琢如磨。">
+<meta property="og:description" content="①初始化一个Git仓库，使用git init命令。添加文件到Git仓库，分两步：    第一步，使用命令git add &amp;lt;file&amp;gt;，注意，可反复多次使用，添加多个文件；    第二步，使用命令git commit，完成。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-06T11:44:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="午夜星灯">
-<meta name="twitter:description" content="如切如磋,如琢如磨。">
+<meta name="twitter:title" content="git总结">
+<meta name="twitter:description" content="①初始化一个Git仓库，使用git init命令。添加文件到Git仓库，分两步：    第一步，使用命令git add &amp;lt;file&amp;gt;，注意，可反复多次使用，添加多个文件；    第二步，使用命令git commit，完成。">
   
     <link rel="alternate" href="/atom.xml" title="午夜星灯" type="application/atom+xml">
   
@@ -67,216 +69,72 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/16/毕业设计1-统计数据/" class="archive-article-date">
-  <time datetime="2018-11-16T12:30:22.000Z" itemprop="datePublished">Nov 16</time>
+        <section id="main"><article id="post-git总结" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/27/git总结/" class="article-date">
+  <time datetime="2018-02-27T12:41:57.000Z" itemprop="datePublished">2018-02-27</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/学习/">学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/16/毕业设计1-统计数据/">毕业设计1--统计数据</a>
+    <h1 class="article-title" itemprop="name">
+      git总结
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/05/java学习1-jdk和jre/" class="archive-article-date">
-  <time datetime="2018-11-05T05:28:47.000Z" itemprop="datePublished">Nov 5</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/05/java学习1-jdk和jre/">java学习1-jdk和jre</a>
-    </h1>
-  
+        <p>①初始化一个Git仓库，使用<code>git init</code>命令。<br>添加文件到Git仓库，分两步：<br>    第一步，使用命令<code>git add &lt;file&gt;</code>，注意，可反复多次使用，添加多个文件；<br>    第二步，使用命令<code>git commit</code>，完成。<br><a id="more"></a><br>②<code>git status</code>:查看啊当前的git仓库状态。<br>HEAD指向的版本就是当前版本，HEAD^指向上一版本，HEAD^^指向再上一版本,因此，Git允许我们在版本的历史之间穿梭，使用命令<code>git reset --hard commit_id</code>。<br>穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。<br>要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。<br>③暂存区是Git非常重要的概念，弄明白了暂存区，就弄明白了Git的很多操作到底干了什么。<br>没弄明白暂存区是怎么回事的童鞋，请向上滚动页面，再看一次。<br>理解了Git是如何跟踪修改的，每次修改，如果不add到暂存区，那就不会加入到commit中。</p>
+<p>④场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。<br>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD file</code>，就回到了场景1，第二步按场景1操作。<br>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。</p>
+<p>⑤命令<code>git rm</code>用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。</p>
+<p>⑥要关联一个远程库，使用命令<code>git remote add origin git@server-name:path/repo-name.git</code>；<br>关联后，使用命令<code>git push -u origin master</code>第一次推送master分支的所有内容；<br>此后，每次本地提交后，只要有必要，就可以使用命令<code>git push origin master</code>推送最新修改；</p>
+<p>⑦要克隆一个仓库，首先必须知道仓库的地址，然后使用<code>git clone</code>命令克隆。<br>Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。</p>
+<p>12/21<br>⑧查看分支：<code>git branch</code><br>创建分支：<code>git branch &lt;name&gt;</code><br>切换分支：<code>git checkout &lt;name&gt;</code><br>创建+切换分支：<code>git checkout -b &lt;name&gt;</code><br>合并某分支到当前分支：<code>git merge &lt;name&gt;</code><br>删除分支：<code>git branch -d &lt;name&gt;</code><br>看到分支合并图:<code>git log —graph</code><br>⑨开发一个新feature，最好新建一个分支；<br>如果要丢弃一个没有被合并过的分支，可以通过<code>git branch -D &lt;name&gt;</code>强行删除。</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/10/31/pycharm安装依赖出现出错/" class="archive-article-date">
-  <time datetime="2018-10-31T03:38:45.000Z" itemprop="datePublished">Oct 31</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/31/pycharm安装依赖出现出错/">pycharm安装依赖出现出错</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/10/02/Nginx-一/" class="archive-article-date">
-  <time datetime="2018-10-02T07:51:00.000Z" itemprop="datePublished">Oct 2</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/27/git总结/" data-id="cjp9p6dhp0005ki6aujscbjaz" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/02/Nginx-一/">Nginx(一)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/09/26/阿里测开面经/" class="archive-article-date">
-  <time datetime="2018-09-26T08:57:00.000Z" itemprop="datePublished">Sep 26</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/26/阿里测开面经/">阿里测开面经</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/02/28/pythonBoll/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          python中布尔类型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/07/js-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript笔记（一）</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/09/25/mac下java连接mysql/" class="archive-article-date">
-  <time datetime="2018-09-25T12:53:16.000Z" itemprop="datePublished">Sep 25</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/25/mac下java连接mysql/">mac下java连接mysql</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/09/24/腾讯测开面经/" class="archive-article-date">
-  <time datetime="2018-09-24T08:57:12.000Z" itemprop="datePublished">Sep 24</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/24/腾讯测开面经/">腾讯测开面经</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/30/TestType/" class="archive-article-date">
-  <time datetime="2018-03-30T12:36:46.000Z" itemprop="datePublished">Mar 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/30/TestType/">测试分类小结</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/01/list-tuple-dic-set/" class="archive-article-date">
-  <time datetime="2018-03-01T07:25:29.000Z" itemprop="datePublished">Mar 1</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/01/list-tuple-dic-set/">list-tuple-dic-set</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/02/28/pythonBoll/" class="archive-article-date">
-  <time datetime="2018-02-28T02:48:28.000Z" itemprop="datePublished">Feb 28</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/28/pythonBoll/">python中布尔类型</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         

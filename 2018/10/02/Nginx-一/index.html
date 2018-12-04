@@ -5,18 +5,27 @@
   
 
   
-  <title>Archives: 2018 | 午夜星灯</title>
+  <title>Nginx(一) | 午夜星灯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如切如磋,如琢如磨。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="午夜星灯">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="初衷实习期间有用到nginx服务器相关的一些知识，但是实习期间业务多，没有大量的闲暇时间可以用来进行系统的学习，所以最近想趁着闲暇，写一个nginx系列的学习笔记。">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx(一)">
+<meta property="og:url" content="http://yoursite.com/2018/10/02/Nginx-一/index.html">
 <meta property="og:site_name" content="午夜星灯">
-<meta property="og:description" content="如切如磋,如琢如磨。">
+<meta property="og:description" content="初衷实习期间有用到nginx服务器相关的一些知识，但是实习期间业务多，没有大量的闲暇时间可以用来进行系统的学习，所以最近想趁着闲暇，写一个nginx系列的学习笔记。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/3.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/5.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/6.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/7.png">
+<meta property="og:updated_time" content="2018-11-16T12:46:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="午夜星灯">
-<meta name="twitter:description" content="如切如磋,如琢如磨。">
+<meta name="twitter:title" content="Nginx(一)">
+<meta name="twitter:description" content="初衷实习期间有用到nginx服务器相关的一些知识，但是实习期间业务多，没有大量的闲暇时间可以用来进行系统的学习，所以最近想趁着闲暇，写一个nginx系列的学习笔记。">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/2.png">
   
     <link rel="alternate" href="/atom.xml" title="午夜星灯" type="application/atom+xml">
   
@@ -67,216 +76,80 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/16/毕业设计1-统计数据/" class="archive-article-date">
-  <time datetime="2018-11-16T12:30:22.000Z" itemprop="datePublished">Nov 16</time>
+        <section id="main"><article id="post-Nginx-一" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/02/Nginx-一/" class="article-date">
+  <time datetime="2018-10-02T07:51:00.000Z" itemprop="datePublished">2018-10-02</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/学习/">学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/16/毕业设计1-统计数据/">毕业设计1--统计数据</a>
+    <h1 class="article-title" itemprop="name">
+      Nginx(一)
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/05/java学习1-jdk和jre/" class="archive-article-date">
-  <time datetime="2018-11-05T05:28:47.000Z" itemprop="datePublished">Nov 5</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/05/java学习1-jdk和jre/">java学习1-jdk和jre</a>
-    </h1>
-  
+        <h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>实习期间有用到nginx服务器相关的一些知识，但是实习期间业务多，没有大量的闲暇时间可以用来进行系统的学习，所以最近想趁着闲暇，写一个nginx系列的学习笔记。<br><a id="more"></a></p>
+<h2 id="环境及安装"><a href="#环境及安装" class="headerlink" title="环境及安装"></a>环境及安装</h2><p>使用的是自己linux下的centos版本。<br>其实在这里有个插曲，我是在腾讯云买的云主机，但是原来的主机进去发现不能使用yum，也不能使用wget，这我就没辙了，当时想了好多的办法来解决这个安装问题，最后还是重装系统大法好，重新装了个系统，一切都好使了。</p>
+<ol>
+<li>安装依赖模块和gcc gcc-c++<br> yum -y install gcc gcc-c++wget</li>
+<li>下载nginx<br> wget <a href="http://nginx.org/download/nginx-1.10.1.tar.gz" target="_blank" rel="noopener">http://nginx.org/download/nginx-1.10.1.tar.gz</a></li>
+<li>在~目录下解压nginx压缩包<br> tar -zxvf nginx-1.10.1.tar.gz</li>
+<li>了解nginx结构<br><img src="Nginx-一/2.png" alt=""><br>主要需要了解的几个文件夹：<br><img src="Nginx-一/3.png" alt=""></li>
+<li>编译安装nginx<br>  1 安装依赖包：<br> yum -y install pcre-devel openssl-devel<br> 2 nginx编译安装<br> 首先切换到nginx解压的目录<br> ./configure \<br> –prefix=/usr/local/nginx \<br> –with-http_ssl_module<br> 3 通过make编译安装nginx<br> make &amp;&amp; make install<h2 id="Nginx启动和停止"><a href="#Nginx启动和停止" class="headerlink" title="Nginx启动和停止"></a>Nginx启动和停止</h2>切换到nginx的安装目录下-/usr/local/nginx</li>
+<li>启动命令如下：<br> ./nginx<br>可以看一下现在的进程：<br><img src="Nginx-一/4.png" alt=""></li>
+<li>停止命令如下：<br> ./nginx -s stop<br><img src="Nginx-一/5.png" alt=""></li>
+<li>重启nginx后查看端口占用<br><img src="Nginx-一/6.png" alt=""><br>由图可以看出，nginx正在监听80端口；netstat命令的四个选项tlnp分别代表查看tcp协议，查看监听服务，不解析名称以及显示进程名和pid</li>
+<li>访问测试<br>首先要配置iptables防火墙，实现80端口的访问<br> iptables -I INPUT -p tcp –dport 80 -j ACCEPT<br>执行完后没有任何提示表示执行成功<br>为进一步确认，可以确认查看<br> service iptables status<br>若需要保存此iptables，执行以下命令：<br> service iptables save<br> 接下来重启iptables<br> service iptables restart<br>最后，查看一下结果：<br><img src="Nginx-一/7.png" alt=""></li>
+</ol>
+<p>成功了！！</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/10/31/pycharm安装依赖出现出错/" class="archive-article-date">
-  <time datetime="2018-10-31T03:38:45.000Z" itemprop="datePublished">Oct 31</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/31/pycharm安装依赖出现出错/">pycharm安装依赖出现出错</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/10/02/Nginx-一/" class="archive-article-date">
-  <time datetime="2018-10-02T07:51:00.000Z" itemprop="datePublished">Oct 2</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/02/Nginx-一/" data-id="cjp9p6dhe0000ki6a3ap3f0sr" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/02/Nginx-一/">Nginx(一)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/09/26/阿里测开面经/" class="archive-article-date">
-  <time datetime="2018-09-26T08:57:00.000Z" itemprop="datePublished">Sep 26</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/26/阿里测开面经/">阿里测开面经</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/31/pycharm安装依赖出现出错/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          pycharm安装依赖出现出错
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/26/阿里测开面经/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">阿里测开面经</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/09/25/mac下java连接mysql/" class="archive-article-date">
-  <time datetime="2018-09-25T12:53:16.000Z" itemprop="datePublished">Sep 25</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/25/mac下java连接mysql/">mac下java连接mysql</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/09/24/腾讯测开面经/" class="archive-article-date">
-  <time datetime="2018-09-24T08:57:12.000Z" itemprop="datePublished">Sep 24</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/24/腾讯测开面经/">腾讯测开面经</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/30/TestType/" class="archive-article-date">
-  <time datetime="2018-03-30T12:36:46.000Z" itemprop="datePublished">Mar 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/30/TestType/">测试分类小结</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/01/list-tuple-dic-set/" class="archive-article-date">
-  <time datetime="2018-03-01T07:25:29.000Z" itemprop="datePublished">Mar 1</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/01/list-tuple-dic-set/">list-tuple-dic-set</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/02/28/pythonBoll/" class="archive-article-date">
-  <time datetime="2018-02-28T02:48:28.000Z" itemprop="datePublished">Feb 28</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/28/pythonBoll/">python中布尔类型</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         
