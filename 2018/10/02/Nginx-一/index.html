@@ -87,17 +87,17 @@
 <meta property="og:site_name" content="午夜星灯">
 <meta property="og:description" content="初衷实习期间有用到nginx服务器相关的一些知识，但是实习期间业务多，没有大量的闲暇时间可以用来进行系统的学习，所以最近想趁着闲暇，写一个nginx系列的学习笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/2.png">
-<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/3.png">
-<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/4.png">
-<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/5.png">
-<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/6.png">
-<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/7.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/3.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/5.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/6.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/Nginx-一/7.png">
 <meta property="og:updated_time" content="2018-11-16T12:46:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx(一)">
 <meta name="twitter:description" content="初衷实习期间有用到nginx服务器相关的一些知识，但是实习期间业务多，没有大量的闲暇时间可以用来进行系统的学习，所以最近想趁着闲暇，写一个nginx系列的学习笔记。">
-<meta name="twitter:image" content="http://yoursite.com/2018/10/02/Nginx-一/Nginx-一/2.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/02/Nginx-一/2.png">
 
 
 
@@ -365,12 +365,12 @@
 <li>安装依赖模块和gcc gcc-c++<br> yum -y install gcc gcc-c++wget</li>
 <li>下载nginx<br> wget <a href="http://nginx.org/download/nginx-1.10.1.tar.gz" target="_blank" rel="noopener">http://nginx.org/download/nginx-1.10.1.tar.gz</a></li>
 <li>在~目录下解压nginx压缩包<br> tar -zxvf nginx-1.10.1.tar.gz</li>
-<li>了解nginx结构<br><img src="Nginx-一/2.png" alt=""><br>主要需要了解的几个文件夹：<br><img src="Nginx-一/3.png" alt=""></li>
+<li>了解nginx结构<br><img src="/2018/10/02/Nginx-一/2.png" alt=""><br>主要需要了解的几个文件夹：<br><img src="/2018/10/02/Nginx-一/3.png" alt=""></li>
 <li>编译安装nginx<br>  1 安装依赖包：<br> yum -y install pcre-devel openssl-devel<br> 2 nginx编译安装<br> 首先切换到nginx解压的目录<br> ./configure \<br> –prefix=/usr/local/nginx \<br> –with-http_ssl_module<br> 3 通过make编译安装nginx<br> make &amp;&amp; make install<h2 id="Nginx启动和停止"><a href="#Nginx启动和停止" class="headerlink" title="Nginx启动和停止"></a>Nginx启动和停止</h2>切换到nginx的安装目录下-/usr/local/nginx</li>
-<li>启动命令如下：<br> ./nginx<br>可以看一下现在的进程：<br><img src="Nginx-一/4.png" alt=""></li>
-<li>停止命令如下：<br> ./nginx -s stop<br><img src="Nginx-一/5.png" alt=""></li>
-<li>重启nginx后查看端口占用<br><img src="Nginx-一/6.png" alt=""><br>由图可以看出，nginx正在监听80端口；netstat命令的四个选项tlnp分别代表查看tcp协议，查看监听服务，不解析名称以及显示进程名和pid</li>
-<li>访问测试<br>首先要配置iptables防火墙，实现80端口的访问<br> iptables -I INPUT -p tcp –dport 80 -j ACCEPT<br>执行完后没有任何提示表示执行成功<br>为进一步确认，可以确认查看<br> service iptables status<br>若需要保存此iptables，执行以下命令：<br> service iptables save<br> 接下来重启iptables<br> service iptables restart<br>最后，查看一下结果：<br><img src="Nginx-一/7.png" alt=""></li>
+<li>启动命令如下：<br> ./nginx<br>可以看一下现在的进程：<br><img src="/2018/10/02/Nginx-一/4.png" alt=""></li>
+<li>停止命令如下：<br> ./nginx -s stop<br><img src="/2018/10/02/Nginx-一/5.png" alt=""></li>
+<li>重启nginx后查看端口占用<br><img src="/2018/10/02/Nginx-一/6.png" alt=""><br>由图可以看出，nginx正在监听80端口；netstat命令的四个选项tlnp分别代表查看tcp协议，查看监听服务，不解析名称以及显示进程名和pid</li>
+<li>访问测试<br>首先要配置iptables防火墙，实现80端口的访问<br> iptables -I INPUT -p tcp –dport 80 -j ACCEPT<br>执行完后没有任何提示表示执行成功<br>为进一步确认，可以确认查看<br> service iptables status<br>若需要保存此iptables，执行以下命令：<br> service iptables save<br> 接下来重启iptables<br> service iptables restart<br>最后，查看一下结果：<br><img src="/2018/10/02/Nginx-一/7.png" alt=""></li>
 </ol>
 <p>成功了！！</p>
 

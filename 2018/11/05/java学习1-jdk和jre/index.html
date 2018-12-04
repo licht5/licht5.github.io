@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="午夜星灯">
 <meta property="og:description" content="jdk与jrejdk是java开发环境，用于开发java，包含jre；jre为java运行环境，如果只要跑java程序，只需要安装jre即可；jre：jvm+类库jdk：jre+java编译打包等；">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/11/05/java学习1-jdk和jre/java学习1-jdk和jre/1.png">
-<meta property="og:image" content="http://yoursite.com/2018/11/05/java学习1-jdk和jre/java学习1-jdk和jre/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/java学习1-jdk和jre/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/java学习1-jdk和jre/2.png">
 <meta property="og:updated_time" content="2018-11-05T11:29:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java学习1-jdk和jre">
 <meta name="twitter:description" content="jdk与jrejdk是java开发环境，用于开发java，包含jre；jre为java运行环境，如果只要跑java程序，只需要安装jre即可；jre：jvm+类库jdk：jre+java编译打包等；">
-<meta name="twitter:image" content="http://yoursite.com/2018/11/05/java学习1-jdk和jre/java学习1-jdk和jre/1.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/05/java学习1-jdk和jre/1.png">
 
 
 
@@ -358,7 +358,7 @@
         <h3 id="jdk与jre"><a href="#jdk与jre" class="headerlink" title="jdk与jre"></a>jdk与jre</h3><p>jdk是java开发环境，用于开发java，包含jre；<br>jre为java运行环境，如果只要跑java程序，只需要安装jre即可；<br>jre：jvm+类库<br>jdk：jre+java编译打包等；<br><a id="more"></a></p>
 <h3 id="jdk中重要的包"><a href="#jdk中重要的包" class="headerlink" title="jdk中重要的包"></a>jdk中重要的包</h3><p>bin：包括javac.exe-java编译程序，jar.exe-java打包程序等；<br>db：java数据库相关；<br>include：java的前身是c++，这里引入的是一些c、c++文件；<br>src.zip：java核心代码库，如lang、math等，以后要看java源代码，就从这里看；<br>jre：java运行环境；</p>
 <h3 id="java编译"><a href="#java编译" class="headerlink" title="java编译"></a>java编译</h3><p>首先找到mac下，java相应文件。<br>在jdk/contents/home/bin下新建文件，fgh.java，写上一个简单的java程序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class HelloWorld &#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">        		System.out.println(&quot;HelloWorld program&quot;);</span><br><span class="line">    	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在此文件目录下，打开bash，<code>javac fgh.java</code>对此java程序进行编译，但是显示当前用户没有权限，为了获得权限，尝试使用<code>su javac fgh.java</code>来进行编译，得到结果<code>su：sorry</code>，既然如此，只能祭出我们的大法–root用户！<code>sudo passwd root</code>建root用户，再按上面所述就可以对java程序进行编译啦。<br><img src="java学习1-jdk和jre/1.png" alt=""><br>编译后的文件夹下生成了.class文件。<br><img src="java学习1-jdk和jre/2.png" alt=""><br>经过编译的文件就可以直接<code>java HelloWorld</code>运行了!</p>
+<p>在此文件目录下，打开bash，<code>javac fgh.java</code>对此java程序进行编译，但是显示当前用户没有权限，为了获得权限，尝试使用<code>su javac fgh.java</code>来进行编译，得到结果<code>su：sorry</code>，既然如此，只能祭出我们的大法–root用户！<code>sudo passwd root</code>建root用户，再按上面所述就可以对java程序进行编译啦。<br><img src="/2018/11/05/java学习1-jdk和jre/1.png" alt=""><br>编译后的文件夹下生成了.class文件。<br><img src="/2018/11/05/java学习1-jdk和jre/2.png" alt=""><br>经过编译的文件就可以直接<code>java HelloWorld</code>运行了!</p>
 
       
     </div>

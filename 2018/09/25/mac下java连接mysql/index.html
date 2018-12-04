@@ -87,16 +87,16 @@
 <meta property="og:site_name" content="午夜星灯">
 <meta property="og:description" content="环境操作系统：MAC OSX；数据库：mysql；IDEA：IntelliJ;教材：面向对象程序设计教程（任宏萍 清华大学出版社）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/09/25/mac下java连接mysql/mac下java连接mysql/1.png">
-<meta property="og:image" content="http://yoursite.com/2018/09/25/mac下java连接mysql/mac下java连接mysql/2.png">
-<meta property="og:image" content="http://yoursite.com/2018/09/25/mac下java连接mysql/mac下java连接mysql/3.png">
-<meta property="og:image" content="http://yoursite.com/2018/09/25/mac下java连接mysql/mac下java连接mysql/4.png">
-<meta property="og:image" content="http://yoursite.com/2018/09/25/mac下java连接mysql/mac下java连接mysql/5.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/25/mac下java连接mysql/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/25/mac下java连接mysql/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/25/mac下java连接mysql/3.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/25/mac下java连接mysql/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/25/mac下java连接mysql/5.png">
 <meta property="og:updated_time" content="2018-10-06T11:45:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac下java连接mysql">
 <meta name="twitter:description" content="环境操作系统：MAC OSX；数据库：mysql；IDEA：IntelliJ;教材：面向对象程序设计教程（任宏萍 清华大学出版社）">
-<meta name="twitter:image" content="http://yoursite.com/2018/09/25/mac下java连接mysql/mac下java连接mysql/1.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/25/mac下java连接mysql/1.png">
 
 
 
@@ -385,7 +385,7 @@ public class Student {
         }
     }
 }
-</code></pre><h2 id="遇到的问题及解决"><a href="#遇到的问题及解决" class="headerlink" title="遇到的问题及解决"></a>遇到的问题及解决</h2><p>1 首先使用jdbc连接数据库需要确定url、name的内容，url=”jdbc:mysql://主机名:连接端口/数据库名称?参数”，我这里用的本地的数据库，主机名就是localhost，，mysql的默认连接端口就是3306，name就如上代码写就ok，user和password就是数据库的用户名和密码；<br>2 运行时，Class.forName(name);行编译不通过，经讨论确定是jdbc驱动问题。故安装驱动。<br>下载jar包，<a href="http://pan.baidu.com/s/1eQwIjNs" target="_blank" rel="noopener"> 点击 </a> ；将解压后的jar包放在/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib下。<br><img src="mac下java连接mysql/1.png" alt=""><br><img src="mac下java连接mysql/2.png" alt=""><br>再次运行即可编译通过此行。<br>3 端口问题<br><img src="mac下java连接mysql/3.png" alt=""><br>根据以上显示以为端口应该填3476，但是经搜索才知道本地mysql默认使用3306，改后就可以连接成功<br><img src="mac下java连接mysql/4.png" alt=""><br>以为在设置里mysql启动暂停界面会有接口的提示发现没有，这个问题以后留心看能不能自己发现吧。<br>注意：mysql要启动起来<br><img src="mac下java连接mysql/5.png" alt=""></p>
+</code></pre><h2 id="遇到的问题及解决"><a href="#遇到的问题及解决" class="headerlink" title="遇到的问题及解决"></a>遇到的问题及解决</h2><p>1 首先使用jdbc连接数据库需要确定url、name的内容，url=”jdbc:mysql://主机名:连接端口/数据库名称?参数”，我这里用的本地的数据库，主机名就是localhost，，mysql的默认连接端口就是3306，name就如上代码写就ok，user和password就是数据库的用户名和密码；<br>2 运行时，Class.forName(name);行编译不通过，经讨论确定是jdbc驱动问题。故安装驱动。<br>下载jar包，<a href="http://pan.baidu.com/s/1eQwIjNs" target="_blank" rel="noopener"> 点击 </a> ；将解压后的jar包放在/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib下。<br><img src="/2018/09/25/mac下java连接mysql/1.png" alt=""><br><img src="/2018/09/25/mac下java连接mysql/2.png" alt=""><br>再次运行即可编译通过此行。<br>3 端口问题<br><img src="/2018/09/25/mac下java连接mysql/3.png" alt=""><br>根据以上显示以为端口应该填3476，但是经搜索才知道本地mysql默认使用3306，改后就可以连接成功<br><img src="/2018/09/25/mac下java连接mysql/4.png" alt=""><br>以为在设置里mysql启动暂停界面会有接口的提示发现没有，这个问题以后留心看能不能自己发现吧。<br>注意：mysql要启动起来<br><img src="/2018/09/25/mac下java连接mysql/5.png" alt=""></p>
 
       
     </div>
