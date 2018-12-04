@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>数据库关系模式规范化 | 午夜星灯</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;emsp;&amp;emsp;学习数据库的时候，一直就没弄明白范式的规范化到底是个什么样的过程，书中也没有一个例子来说明，网上也没有找到什么例子。前段时间准备复试，终于有这个动力和心情把这个问题好好研究一番，自认为应该是明白了解决办法，以一例来说明规范化的过程。&amp;emsp;&amp;emsp;注：使用教材为数据库系统概论（第五版）王珊&amp;emsp;萨师煊&amp;emsp;著">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库关系模式规范化">
+<meta property="og:url" content="http://yoursite.com/2017/04/09/standardize/index.html">
+<meta property="og:site_name" content="午夜星灯">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;学习数据库的时候，一直就没弄明白范式的规范化到底是个什么样的过程，书中也没有一个例子来说明，网上也没有找到什么例子。前段时间准备复试，终于有这个动力和心情把这个问题好好研究一番，自认为应该是明白了解决办法，以一例来说明规范化的过程。&amp;emsp;&amp;emsp;注：使用教材为数据库系统概论（第五版）王珊&amp;emsp;萨师煊&amp;emsp;著">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-26T15:25:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库关系模式规范化">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;学习数据库的时候，一直就没弄明白范式的规范化到底是个什么样的过程，书中也没有一个例子来说明，网上也没有找到什么例子。前段时间准备复试，终于有这个动力和心情把这个问题好好研究一番，自认为应该是明白了解决办法，以一例来说明规范化的过程。&amp;emsp;&amp;emsp;注：使用教材为数据库系统概论（第五版）王珊&amp;emsp;萨师煊&amp;emsp;著">
+  
+    <link rel="alternate" href="/atom.xml" title="午夜星灯" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">午夜星灯</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Willing is not enough, we must do.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-standardize" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/09/standardize/" class="article-date">
+  <time datetime="2017-04-09T12:56:07.000Z" itemprop="datePublished">2017-04-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/学习/">学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据库关系模式规范化
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;&emsp;学习数据库的时候，一直就没弄明白范式的规范化到底是个什么样的过程，书中也没有一个例子来说明，网上也没有找到什么例子。前段时间准备复试，终于有这个动力和心情把这个问题好好研究一番，自认为应该是明白了解决办法，以一例来说明规范化的过程。<br>&emsp;&emsp;注：使用教材为数据库系统概论（第五版）王珊&emsp;萨师煊&emsp;著<br><a id="more"></a></p>
+<blockquote>
+<h5 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h5><p>设有关系模式R{A,B,C,D,E,G},R的函数依赖集F={AB-&gt;C,C-&gt;D,CA-&gt;E,E-&gt;A,BD-&gt;A,B-&gt;C}，求R的候选码，将R分解为具有无损连接且函数依赖保持性的3NF。</p>
+</blockquote>
+<h5 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h5><blockquote>
+<p>&emsp;&emsp;教材P199算法6.4显示要分解为<em>无损的且保持函数依赖的3NF</em>先要知道<em>保持函数依赖的3NF</em>–&gt;教材教材P198算法6.3显示要分解为<em>保持函数依赖的3NF</em>先要对函数F<em>进行”极小化处理“</em>–&gt;教材教材P193定理6.3定义最小依赖集并说明<em>如何进行”极小化处理“</em>–&gt;最先求候选码；<br>&emsp;&emsp;所以解题过程为:</p>
+<ol>
+<li>找出候选码；</li>
+<li>进行”最小化处理“；</li>
+<li>分解为保持函数依赖的3NF</li>
+<li>分解为无损的且保持函数依赖的3NF</li>
+</ol>
+</blockquote>
+<h5 id="解题："><a href="#解题：" class="headerlink" title="解题："></a>解题：</h5><h6 id="找出候选码："><a href="#找出候选码：" class="headerlink" title="找出候选码："></a>找出候选码：</h6><blockquote>
+<p>我知道，候选码不好找，那么，这里提供一个方法，用过的人都说好！</p>
+</blockquote>
+<p><hr><br>(1) <em>X代表L,N两类，Y代表LR类</em><br>集合L是仅出现在F的函数依赖左部的属性集合;<br>集合Ri是仅出现在F的函数依赖右部的属性集合;<br>集合N表示在F的函数依赖左右两边都不出现的属性集合；<br>集合LR表示在F的函数依赖左右两边都出现的属性集合；<br>如上例，左边有A,B,C,D,E;右边有A,C,D,E<br>则L{B}，R{}，N{G}，LR{A,C,D,E}<br>(2) 求属性集闭包X+，若X+包含了R的全部属性则X即为R的唯一候选码，结束，<br>(3) 否则，在Y中取一属性A，求属性集闭包（XA)+，若（XA)+包含了R的全部属性，则转4，否则，调换一属性反复进行这一过程，知道试完Y中所有属性。<br>(4) 如果已找出了所有的候选码，则停止，否则在Y中依次取2个、3个……属性，求X与他们的属性集闭包，直到其闭包包含R的全部属性。<br>(5) 结束，输出结果。</p>
+<p><hr><br>上例，X{B,G},X的闭包包含了R的所有属性，所以{B,G}就是候选码。（ps：不记得怎么求闭包参考P192例6.11）</p>
+<h6 id="进行”最小化处理“："><a href="#进行”最小化处理“：" class="headerlink" title="进行”最小化处理“："></a>进行”最小化处理“：</h6><blockquote>
+<p>书中原话：</p>
+</blockquote>
+<p><hr><br>定理 每一个函数依赖集F均等价于一个极小函数依赖集Fm。此Fm称为F的最小依赖集。<br>证:构造性证明，依据定义分三步对F进行“极小化处理”，找出F的一个最小依赖集。<br>(1) 逐一检查F中各函数依赖FDi：X→Y, 若Y=A1A2 …Ak, k&gt;2,则用 { X→Aj |j=1,2,…, k} 取代X→Y。<br>(2) 逐一检查F中各函数依赖FDi：X→A, 令G=F-{X→A}，若A属于XG+， 则从F中去掉此函数依赖。由于F与<br>G =F-{X→A}等价的充要条件是A XG+，因此F变换前后是等价的。<br>(3) 逐一取出F中各函数依赖FDi：X→A,设X=B1B2…Bm，m&gt;=2，逐一考查Bi（i=1，2，…,m）若A属于（X-Bi）F+，则以X-Bi取代X</p>
+<p><hr><br>上例，先进行（1），则F变为F={AB-&gt;C,C-&gt;D,CA-&gt;E,E-&gt;A,B-&gt;A,D-&gt;A,B-&gt;C}<br>进行（2），检查AB-&gt;C,令G=F-{AB-&gt;C}则G={C-&gt;D,CA-&gt;E,E-&gt;A,B-&gt;A,D-&gt;A,B-&gt;C}，(AB)G+为{A,B,C,D,E},明显C属于(AB)G+，所以去掉AB-&gt;C这一函数依赖，其他的不一一检查<br>进行(3),CA-&gt;E,判断A是否属于（C）或者(A)在F下的闭包，经检查这条不符合（3）情况，故最后的Fm={C-&gt;D,CA-&gt;E,E-&gt;A,B-&gt;A,B-&gt;C}</p>
+<h6 id="分解为保持函数依赖的3NF："><a href="#分解为保持函数依赖的3NF：" class="headerlink" title="分解为保持函数依赖的3NF："></a>分解为保持函数依赖的3NF：</h6><p>(1) 所有不在F中出现的是G<br>(2) 对左部相同的函数依赖进行合并，CD,ACE,EA,BAC<br>(3) 进行最后合并{CD,ACE,ABC,G}</p>
+<h6 id="分解为无损的且保持函数依赖的3NF"><a href="#分解为无损的且保持函数依赖的3NF" class="headerlink" title="分解为无损的且保持函数依赖的3NF"></a>分解为无损的且保持函数依赖的3NF</h6><p>由于{BG}是码，且{G}属于{BG}，所以用{BG}取代3中的{G}，最后求得的结果就是{CD,ACE,ABC,BG}</p>
+<blockquote>
+<p>嗯！解完了！</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/09/standardize/" data-id="cjp9qbd46000xof6ay7tm9gh7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/23/c语言-一/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          c语言之一：数据输入输出
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/09/导入jar包/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android Studio如何导入jar包</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/c语言/">c语言</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕业设计/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面经/">面经</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语言/">语言</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语言-安卓/">语言 - 安卓</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/测试/" style="font-size: 16.67px;">测试</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/语言/" style="font-size: 20px;">语言</a> <a href="/tags/语言-安卓/" style="font-size: 10px;">语言 - 安卓</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/16/毕业设计1-统计数据/">毕业设计1--统计数据</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/05/java学习1-jdk和jre/">java学习1-jdk和jre</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/31/pycharm安装依赖出现出错/">pycharm安装依赖出现出错</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/02/Nginx-一/">Nginx(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/26/阿里测开面经/">阿里测开面经</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 田斐菡<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
